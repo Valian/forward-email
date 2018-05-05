@@ -93,7 +93,7 @@ class ForwardEmail {
     // setup rate limiting with redis
     this.limiter = Object.assign(
       {
-        db: redis.createClient(),
+        db: redis.createClient(this.config.limiter.clientOptions || {}),
         max: 100, // max requests within duration
         duration: ms('1h')
       },

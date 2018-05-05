@@ -1,0 +1,11 @@
+version: '2'
+services:
+  redis:
+    image: redis
+
+  forwarder:
+    build: .
+    ports:
+      - 25:25
+      - 465:465
+      - 587:587
